@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+
+    <script>
+
+      tinymce.init({
+
+        selector: '#context',
+
+        plugins: [
+
+          'a11ychecker','advlist','advcode','advtable','autolink','checklist','export',
+
+          'lists','link','image','charmap','preview','anchor','searchreplace','visualblocks',
+
+          'powerpaste','fullscreen','formatpainter','insertdatetime','media','table','help','wordcount'
+
+        ],
+
+        toolbar: 'undo redo | formatpainter casechange blocks | bold italic backcolor | ' +
+
+          'alignleft aligncenter alignright alignjustify | ' +
+
+          'bullist numlist checklist outdent indent | removeformat | a11ycheck code table help'
+
+      });
+
+    </script>
+    <title>Редактирование</title>
+</head>
+<body>
+<form  th:method="PATCH" th:action="@{/people/{id}(id=${person.getId()})}" th:object="${person}">
+
+    <label for="name">Введите имя</label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+    <br>
+    <input type="text" th:field="*{age}" id="age"/>
+    <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Name Error</div>
+    <br>
+    <input type="text" th:field="*{email}" id="email"/>
+    <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Name Error</div>
+    <br>
+    <textarea th:field="*{context}" id="context">Hello, World!</textarea>
+    <input type="submit" value="Применить"/>
+</form>
+</body>
+</html>

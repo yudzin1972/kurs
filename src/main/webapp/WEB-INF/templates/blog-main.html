@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Блок сайта</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+
+    <script>
+
+      tinymce.init({
+
+        selector: '#mytextarea',
+
+        plugins: [
+
+          'a11ychecker','advlist','advcode','advtable','autolink','checklist','export',
+
+          'lists','link','image','charmap','preview','anchor','searchreplace','visualblocks',
+
+          'powerpaste','fullscreen','formatpainter','insertdatetime','media','table','help','wordcount'
+
+        ],
+
+        toolbar: 'undo redo | formatpainter casechange blocks | bold italic backcolor | ' +
+
+          'alignleft aligncenter alignright alignjustify | ' +
+
+          'bullist numlist checklist outdent indent | removeformat | a11ycheck code table help'
+
+      });
+
+    </script>
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5">
+<h1>Блок сайта</h1>
+</div>
+<h1>TinyMCE Quick Start Guide</h1>
+
+<form method="post">
+
+    <textarea id="mytextarea">Hello, World!</textarea>
+
+</form>
+<footer th:insert="blocks/footer :: footer"></footer>
+</body>
+</html>
