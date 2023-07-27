@@ -123,7 +123,7 @@ public class Form2 extends javax.swing.JFrame {
             public void run() {
                 jTextArea1.append("size="+outputStream.toString());
                 jTextArea1.setAutoscrolls(true);
-
+                jTextArea1.setCaretPosition(jTextArea1.getText().length());
                 //        jLabel1.setText(new Date().toString());
                 System.out.println(new Date());
             }
